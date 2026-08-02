@@ -161,7 +161,10 @@ def discover(project_dir: str | None = None) -> dict:
             redact_text(str(HOME / ".claude" / "settings.json")),
             redact_text(str(HOME / ".claude" / "plugins" / "installed_plugins.json")),
             redact_text(str(HOME / ".claude" / "plugins" / "cache" / "<marketplace>" / "<plugin>" / "<version>" / ".mcp.json")),
-            redact_text(str(proj_mcp)),
+            # Written generically rather than as the real path: the project directory
+            # changes between a working tree and a clone, and embedding it would make the
+            # generated page differ by location rather than by finding.
+            "<project>/.mcp.json",
         ],
         "notes": notes,
         "servers": [redact_obj(asdict(s)) for s in servers],

@@ -176,7 +176,7 @@ Each cell is the status for one canary channel through one tool result. `REACHES
 - **`claude_ai_Google_Calendar`** (connector): NOT TESTED. account-level claude.ai connector; OAuth, remote. Not present in any local config file, so this harness cannot launch it.
 - **`claude_ai_Google_Drive`** (connector): NOT TESTED. account-level claude.ai connector; OAuth, remote. Not present in any local config file, so this harness cannot launch it.
 
-_Generated from `results/findings.json` at 2026-08-02T03:15:28Z by `python3 -m canary.report`. Do not edit this block by hand._
+_Generated from `results/findings.json` at 2026-08-02T03:21:15Z by `python3 -m canary.report`. Do not edit this block by hand._
 
 <!-- END:GENERATED -->
 

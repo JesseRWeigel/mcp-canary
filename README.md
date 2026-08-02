@@ -1,5 +1,7 @@
 # mcp-canary
 
+**[Open the live page](https://jesserweigel.github.io/mcp-canary/)**
+
 A prompt-injection canary suite for the MCP servers installed on one workstation.
 
 An MCP server returns tool results into an agent's context. If a server can be made to
@@ -362,3 +364,5 @@ VERIFY OK: 8 checks passed
 ## License
 
 MIT, see `LICENSE`.
+
+Part of [722 things to build](https://github.com/JesseRWeigel/722-things-to-build).

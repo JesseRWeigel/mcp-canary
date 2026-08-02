@@ -64,7 +64,7 @@ POLICY: dict[str, Policy] = {
                "third party. Neither is acceptable.",
     ),
     "firebase": Policy(
-        kind=None, category="remote",
+        kind=None, category="unreachable",
         reason="NOT TESTED. Launch line is `npx -y firebase-tools@latest mcp`, which resolves "
                "`@latest` against the npm registry on every start, and its tools need either a "
                "signed-in Firebase project or a call to Google's hosted docs API.",

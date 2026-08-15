@@ -2,6 +2,10 @@
 
 **[Open the live page](https://jesserweigel.github.io/mcp-canary/)**
 
+> Measurements described here were taken on one development machine: an RTX 5090 with
+> 32 GB of VRAM, 12 cores, 48 GB of RAM, running Linux under WSL2. Numbers from your own
+> hardware will differ.
+
 A prompt-injection canary suite for the MCP servers installed on one workstation.
 
 An MCP server returns tool results into an agent's context. If a server can be made to
@@ -71,7 +75,7 @@ Nothing about the configuration is assumed. `canary/discover.py` reads, at run t
 - `~/.claude/plugins/installed_plugins.json`, and each installed plugin's `.mcp.json`
 - `<project>/.mcp.json`
 
-Both `.mcp.json` shapes are handled, because both are present on this machine: some
+Both `.mcp.json` shapes are handled, because both are present on the development machine: some
 plugins wrap their servers in `{"mcpServers": {...}}` and some write a bare `{name: def}`.
 Every inventory entry records the file it came from, so any claim here can be checked.
 
@@ -97,7 +101,7 @@ install command rather than skipping the section, because a skipped check report
 success as one that ran.
 
 `results/` is not committed. A transcript from a search server contains whatever was in
-that server's index, which on this machine is the owner's private notes. The independent
+that server's index, which on the development machine is the owner's private notes. The independent
 checker still scans those files for credentials and home paths, since the redaction that
 keeps them out is exactly what needs checking.
 
@@ -111,7 +115,7 @@ Across 145 canary observations: **22 REACHES_CONTEXT**, 73 NOT_REACHED, 50 NOT_T
 
 38/38 assertions pass (11 positive, 9 negative controls, 18 invariants).
 
-### Servers discovered on this machine
+### Servers discovered on the development machine
 
 | server | plugin | transport | probed | how it was handled |
 |---|---|---|---|---|
@@ -199,7 +203,7 @@ regex inherits the filter's bugs and reports clean on output that is not.
 
 **The NUL-byte scan is written in Python, not grep.** A file containing a NUL is classified
 as binary by git and grep, and `grep -I` then skips it entirely, so one NUL blinds a text
-sweep to a whole file. `grep -P '\x00'` is also not available in every grep on this box.
+sweep to a whole file. `grep -P '\x00'` is also not available in every grep on the development machine.
 `tests/test_redact_and_scan.py` asserts both halves: that the Python scan finds a planted
 NUL, and that `grep -I` does not see a credential in the same file while `grep -a` does.
 
